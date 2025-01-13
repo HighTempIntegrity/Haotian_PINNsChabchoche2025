@@ -1,0 +1,128 @@
+{
+  "run": "monotonic",
+  "load_model": true,
+  "save_model": true,
+  "current_time": null,
+  "common_parameters": {
+    "data_path": "./data/common_constants.csv",
+    "plot_save_path": "C:/Users/Haotian/OneDrive - ETH Zurich/ETH PhD/Code/Chaboche_PINNS/plot_fit",
+    "loss_save_path": "C:/Users/Haotian/OneDrive - ETH Zurich/ETH PhD/Code/Chaboche_PINNS/plot_loss",
+    "model_save_path": "C:/Users/Haotian/OneDrive - ETH Zurich/ETH PhD/Code/Chaboche_PINNS/model_save",
+    "train_loss_figure_name": "train_loss.png",
+    "pde_loss_figure_name": "pde_loss.png",
+    "neural_network": {
+      "n_hidden_layers": 6,
+      "neurons": 128,
+      "regularization": 0.0,
+      "regularization_exp": 2.0,
+      "retrain_seed": 128
+    },
+    "seed": 128,
+    "detect_anomaly": false,
+    "device": null,
+    "optimizer": "lbfgs",
+    "idx": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "strain_rates": [
+      0.005,
+      0.001,
+      0.0002
+    ],
+    "strain_rate_matlab_data": [
+      "_rate_005.mat",
+      "_rate_001.mat",
+      "_rate_0002.mat"
+    ],
+    "matlab_data_folder": "C:/Users/Haotian/OneDrive - ETH Zurich/ETH PhD/PINNs/File from Patrik/Viscoplastic_Chaboche_Model"
+  },
+  "monotonic": {
+    "data_path": "./data/monotonic.csv",
+    "load_model_name": "20240209_115554_PDE_loss_learning_regular_6_128_X0_model.pth",
+    "figure_name": "Monotonic",
+    "num_interior_points": 50000,
+    "num_epochs": 1,
+    "input_dimension": 15,
+    "output_dimension": 4,
+    "power": 2,
+    "loss_weights": {
+      "R_t_PDE_W": 0.01,
+      "X1_t_PDE_W": 1.0,
+      "X2_t_PDE_W": 1.0,
+      "eps_p_t_PDE_W": 1e-4
+    },
+    "adam": {
+      "learning_rate": 0.01,
+      "weight_decay": 0
+    },
+    "lbfgs": {
+      "learning_rate": 0.5,
+      "max_iter": 1000000,
+      "max_eval": 1000000,
+      "tolerance_grad": 1e-12,
+      "tolerance_change": 1e-12,
+      "line_search_fn": "strong_wolfe"
+    }
+  },
+  "cyclic": {
+    "data_path": "./data/cyclic.csv",
+    "load_model_name": "20231126_185439_PDE_loss_learning_regular_6_128_first_X0_model.pth",
+    "figure_name": "Cyclic",
+    "num_interior_points": 50000,
+    "num_epochs": 1,
+    "input_dimension": 18,
+    "output_dimension": 4,
+    "loss_weights": {
+      "R_t_PDE_W": 0.05,
+      "X1_t_PDE_W": 5.0,
+      "X2_t_PDE_W": 5.0,
+      "eps_p_t_PDE_W": 1e-4
+    },
+    "adam": {
+      "learning_rate": 0.00001,
+      "weight_decay": 0
+    },
+    "lbfgs": {
+      "learning_rate": 0.1,
+      "max_iter": 1000000,
+      "max_eval": 1000000,
+      "tolerance_grad": 1e-12,
+      "tolerance_change": 1e-12,
+      "line_search_fn": "strong_wolfe"
+    }
+  },
+  "stress_relaxation": {
+    "data_path": "./data/stress_relaxation.csv",
+    "load_model_name": null,
+    "figure_name": "Stress_Relaxation",
+    "num_interior_points": 50000,
+    "num_epochs": 1,
+    "input_dimension": 19,
+    "output_dimension": 4,
+    "power": 2,
+    "loss_weights": {
+      "R_t_PDE_W": 1.0,
+      "X1_t_PDE_W": 200.0,
+      "X2_t_PDE_W": 50.0,
+      "eps_p_t_PDE_W": 8e-4
+    },
+    "adam": {
+      "learning_rate": 0.00001,
+      "weight_decay": 0
+    },
+    "lbfgs": {
+      "learning_rate": 0.5,
+      "max_iter": 500000,
+      "max_eval": 500000,
+      "tolerance_grad": 1e-12,
+      "tolerance_change": 1e-12,
+      "line_search_fn": "strong_wolfe"
+    }
+  }
+}
